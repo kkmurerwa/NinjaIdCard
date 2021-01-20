@@ -95,20 +95,30 @@ class _NinjaCardState extends State<NinjaCard> {
                 )
               ],
             ),
+            SizedBox(height: 30.0),
+            Center(
+              child: FlatButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      ninjaLevel ++;
+                    });
+                  },
+                  icon: Icon(
+                    Icons.add,
+                    color: colorPrimaryDark,
+                  ),
+                  color: colorText,
+                  label: Text(
+                    "Add Ninja Level",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: colorPrimaryDark,
+                    ),
+                  )
+              ),
+            ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          setState(() {
-            ninjaLevel ++;
-          });
-        },
-        child: Icon(
-          Icons.add,
-          color: colorPrimary,
-        ),
-        backgroundColor: colorText,
       ),
     );
   }
