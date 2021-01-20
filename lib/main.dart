@@ -1,20 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-final Color colorPrimary = Colors.deepOrange[800];
-final Color colorPrimaryDark = Colors.red[900];
-final Color colorText =  Colors.white;
-final Color colorTextSecondary = Colors.grey[400];
+
 
 void main() => runApp(MaterialApp(
   home: NinjaCard(),
 ));
 
-class NinjaCard extends StatelessWidget {
+class NinjaCard extends StatefulWidget {
+  @override
+  _NinjaCardState createState() => _NinjaCardState();
+}
 
+class _NinjaCardState extends State<NinjaCard> {
+  int ninjaLevel = 0;
 
   @override
   Widget build(BuildContext context) {
+    final Color colorPrimary = Colors.deepOrange[800];
+    final Color colorPrimaryDark = Colors.red[900];
+    final Color colorText =  Colors.white;
+    final Color colorTextSecondary = Colors.grey[400];
+
     return Scaffold(
       backgroundColor: colorPrimaryDark,
       appBar: AppBar(
@@ -63,7 +70,7 @@ class NinjaCard extends StatelessWidget {
             ),
             SizedBox(height: 10.0),
             Text(
-              "8",
+              '$ninjaLevel',
               style: TextStyle(
                 color: colorText,
                 fontSize: 22.0,
@@ -91,6 +98,19 @@ class NinjaCard extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          setState(() {
+            ninjaLevel ++;
+          });
+        },
+        child: Icon(
+          Icons.add,
+          color: colorPrimary,
+        ),
+        backgroundColor: colorText,
+      ),
     );
   }
 }
+
